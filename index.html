@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Resume Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Interactive Resume Builder</h1>
+    <div id="progress-bar"></div>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <form id="resume-form">
+        <h2>Personal Info</h2>
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="tel" id="phone" placeholder="Phone Number" required />
+        <textarea id="summary" placeholder="Profile Summary"></textarea>
+
+        <h2>Education</h2>
+        <div id="education-section" class="draggable-list"></div>
+        <button type="button" onclick="addEducation()">+ Add Education</button>
+
+        <h2>Experience</h2>
+        <div id="experience-section"></div>
+        <button type="button" onclick="addExperience()">+ Add Experience</button>
+
+        <h2>Skills (Add your own)</h2>
+        <input id="skill-input" placeholder="Type a skill and press Enter" />
+        <div id="skill-tags"></div>
+
+        <div class="form-buttons">
+          <button type="reset" onclick="clearForm()">Clear</button>
+          <button type="button" onclick="downloadPDF()">Download PDF</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="preview-section">
+      <div id="resume-preview" class="resume animate"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

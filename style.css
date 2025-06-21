@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #222;
+}
+header {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  text-align: center;
+  position: relative;
+}
+#progress-bar {
+  height: 5px;
+  background-color: #4caf50;
+  width: 0;
+  transition: width 0.4s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+  gap: 1em;
+}
+.form-section, .preview-section {
+  flex: 1 1 48%;
+  background: white;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  min-width: 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+form input, form textarea {
+  display: block;
+  width: 100%;
+  margin: 0.5em 0 1em 0;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px #4caf50;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 0.6em 1.2em;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-top: 0.3em;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #388e3c;
+}
+button:active {
+  transform: scale(0.95);
+}
+
+.form-buttons {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 1em;
+}
+
+.resume {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.07);
+  animation: fadeIn 0.5s ease-in;
+}
+.resume h2 {
+  margin-bottom: 0.1em;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.2em;
+  color: #2e7d32;
+}
+.resume h3 {
+  color: #388e3c;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.2em;
+}
+.resume ul {
+  margin-left: 1.2em;
+}
+.resume p {
+  margin: 0.3em 0;
+}
+
+/* Skill tags */
+#skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 0.5em;
+}
+.skill-tag {
+  background: #4caf50;
+  color: white;
+  padding: 0.3em 0.7em;
+  border-radius: 15px;
+  cursor: default;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+.skill-tag .remove-skill {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Draggable list items */
+.draggable-list div {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  background: #fefefe;
+  cursor: move;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+.draggable-list div.dragging {
+  opacity: 0.5;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+.draggable-list input {
+  flex: 1 1 30%;
+  min-width: 100px;
+}
+.draggable-list button {
+  flex: 0 0 auto;
+  background: #e53935;
+  padding: 0.3em 0.6em;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: auto;
+  height: 30px;
+  line-height: 1;
+  align-self: stretch;
+}
+.draggable-list button:hover {
+  background: #b71c1c;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .form-section, .preview-section {
+    flex: 1 1 100%;
+    max-height: none;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
